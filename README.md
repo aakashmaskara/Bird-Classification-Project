@@ -59,7 +59,7 @@ Class mapping files:
 ## Results (Summary)
 
 - **Birds vs Squirrels:** ~**98%** train / **98%** val accuracy.  
-- **Birder (358-class):** **Top-1 ≈ 46%**, **Top-5 ≈ 76%**, **Top-10 ≈ 85%**, **Top-20 ≈ 91%** (Avg Top-K ≈ 74%).  
+- **Birder (358-class):** **Top-1 ≈ 46%**, **Top-5 ≈ 76%**, **Top-10 ≈ 85%**, **Top-20 ≈ 91%** (Avg Top-K ≈ 74%).
 
 *Exact curves/ablations are in the report.*
 
@@ -76,6 +76,43 @@ Class mapping files:
 
 > Ensure your dataset paths (TFRecords or folders) match the expected locations inside each script.
 
-### 1) Install
-```bash
-pip install tensorflow numpy matplotlib
+**1) Install**
+    
+    pip install tensorflow numpy matplotlib
+
+**2) Train Birds vs Squirrels (3-class)**
+    
+    python buildAndTrainBirdsVsSquirrels.py
+
+Uses Xception (frozen) with dropout & L2 for regularization.
+
+**3) Train Birder (358-class)**
+    
+    python buildAndTrainBirder.py
+
+Two-phase: head-only, then unfreeze top ~30 InceptionV3 layers; reports Top-K metrics.
+
+---
+
+## Files in this Repository
+
+| File Name | Description |
+|---|---|
+| `buildAndTrainBirdsVsSquirrels.py` | 3-class Xception pipeline (TFRecord/folder input, training, checkpoints) |
+| `buildAndTrainBirder.py` | 358-class InceptionV3 pipeline with Top-K metrics and two-phase fine-tuning |
+| `preprocessDefinition.py` | Shared preprocessing (resize-pad to 299×299, model preprocessing) |
+| `birdNames.txt` | Common names for the 358 bird classes |
+| `birdLabs.txt` | Label list / IDs for the 358 classes |
+| `Applied_ML_HW3_Report.pdf` | Project report—datasets, models, protocol, results, comparisons |
+| `buildAndTrainBirdsVsSquirrels.ipynb` | Notebook version of the 3-class pipeline |
+| `buildAndTrainBirder.ipynb` | Notebook version of the 358-class pipeline |
+
+---
+
+## Author
+
+**Aakash Maskara**  
+*M.S. Robotics & Autonomy, Drexel University*  
+Computer Vision | Deep Learning  
+
+[LinkedIn](https://linkedin.com/in/aakashmaskara) • [GitHub](https://github.com/aakashmaskara)
