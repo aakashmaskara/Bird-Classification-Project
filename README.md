@@ -103,7 +103,7 @@ Two-phase: head-only, then unfreeze top ~30 InceptionV3 layers; reports Top-K me
 | `preprocessDefinition.py` | Shared preprocessing (resize-pad to 299×299, model preprocessing) |
 | `birdNames.txt` | Common names for the 358 bird classes |
 | `birdLabs.txt` | Label list / IDs for the 358 classes |
-| `Applied_ML_HW3_Report.pdf` | Project report—datasets, models, protocol, results, comparisons |
+| `Bird_Classification_Project.pdf` | Project report—datasets, models, protocol, results, comparisons |
 | `buildAndTrainBirdsVsSquirrels.ipynb` | Notebook version of the 3-class pipeline |
 | `buildAndTrainBirder.ipynb` | Notebook version of the 358-class pipeline |
 
